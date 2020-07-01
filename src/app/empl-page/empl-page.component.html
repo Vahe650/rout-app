@@ -1,0 +1,20 @@
+<h2 appColor>empl page works!</h2>
+<hr>
+<div class="row">
+  <div class="col-6">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let empl of employees | async">
+        <a
+          [routerLink]="['/employers',empl.employerId,empl.name]"
+          [queryParams]="{surname: empl.surname, degree: empl.degree}"
+          fragment="task"
+        >
+          {{empl.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>
